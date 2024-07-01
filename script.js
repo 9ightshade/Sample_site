@@ -1,23 +1,37 @@
 const currentDay = document.getElementById('currentDay');
 const currentTimeUTC = document.getElementById('currentTimeUTC');
 
-console.log(currentTimeUTC.textContent, currentDay.textContent);
+
+const timeUpdate = () => {
+  let time = new Date();
+  time ? currentTimeUTC.textContent = time.toLocaleTimeString() : null
+};
+
+setInterval(
+  () => {
+    timeUpdate()
+  }, 1000
+)
 
 
-
-function updateTime() {
+const updateFunction = () => {
   const date = new Date();
-  currentDay
 
-  
-
-  date? currentDay.textContent = date.toLocaleDateString(): null
-
-
-date ? currentTimeUTC.textContent = date.toLocaleTimeString(): null
-
+  const dayFunction = () => {
+    const daysOfWeek = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ]
+    
+    date ? currentDay.textContent = daysOfWeek[date.getDay()]: null
+}
+  dayFunction()
 
 }
 
-
-updateTime()
+updateFunction()
