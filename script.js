@@ -7,11 +7,7 @@ const timeUpdate = () => {
   time ? currentTimeUTC.textContent = time.toLocaleTimeString() : null
 };
 
-setInterval(
-  () => {
-    timeUpdate()
-  }, 1000
-)
+setInterval(timeUpdate(), 1000);
 
 
 const updateFunction = () => {
@@ -28,10 +24,10 @@ const updateFunction = () => {
       "Saturday"
     ]
     
-    date ? currentDay.textContent = daysOfWeek[date.getDay()]: null
-}
-  dayFunction()
+    date ? currentDay.textContent = daysOfWeek[date.getDay()] : null
+  };
+  dayFunction();
 
-}
+};
 
-updateFunction()
+updateFunction();
